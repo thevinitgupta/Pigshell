@@ -4,7 +4,7 @@ import ImageDisplay from './Components/ImageDisplay';
 function App() {
   return (
     <div className="App">
-        Pigshell
+        <header>Pigshell</header>
       <ImageDisplay/>
     </div>
   );

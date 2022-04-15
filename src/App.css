@@ -2,5 +2,10 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
+  background-color: #ffe0fe;
+  color: #4e3b66;
+}
+header {
+  font-size: 3rem;
 }
 
