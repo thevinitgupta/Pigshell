@@ -20,6 +20,14 @@ function ImageDisplay() {
         <img src={previewImage} alt="to convert"/>
     </div>}
 
+    {imageToConvert!=null && <div className='ConvertBtn'>
+        Convert <span id='conv-arrow'>&#x21EA;</span>
+    </div>}
+
+    </div>
+
+    <div className='ImageConvertor'>
+        
     </div>
 
     </div>

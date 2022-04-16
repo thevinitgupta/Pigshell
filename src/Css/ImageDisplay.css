@@ -35,3 +35,24 @@
     border-radius: 5px;
     object-fit: contain;
 }
+.ConvertBtn{
+    width: 60%;
+    margin: 5px auto;
+    padding: 4% 0;
+    border: 2px solid var(--default-code);
+    border-radius: 3px;
+    font-weight: 600;
+    color: var(--default-background);
+    background-color: var(--default-code);
+    transition: all 250ms ease-in-out;
+}
+.ConvertBtn:hover{
+    cursor: pointer;
+    background-color: var(--default-background);
+    color: var(--default-code);
+}
+#conv-arrow{
+    margin-left: 2px;
+    display: inline-block;
+    transform: rotate(90deg);
+}
