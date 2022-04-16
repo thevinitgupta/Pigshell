@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #ffe0fe;
-  color: #4e3b66;
+  width: 70vw;
+  height: 80vh;
+  font-family: var(--default-font);
 }
-header {
+#logo {
+  font-family: var(--logo-font);
   font-size: 3rem;
+  color: var(--default-logo);
 }
 
