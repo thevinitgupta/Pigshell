@@ -46,10 +46,10 @@ function ImageDisplay() {
     <input type="file" accept="image/*" name="uploadedImage" id="uploadedImage" onChange={fileChangedHandler}/>
 
     {imageToConvert!=null && <div className='ImagePreview'>
-        <img src={previewImage} alt="to convert" ref={uploadRef} onLoad={()=>{ loadImageToCanvas();}} onChange={()=>{loadImageToCanvas()}}/>
+        <img src={previewImage} alt="to convert" ref={uploadRef} />
     </div>}
 
-    {imageToConvert!=null && <div className='ConvertBtn'>
+    {imageToConvert!=null && <div className='ConvertBtn' onClick={()=>{ loadImageToCanvas();}}>
         Convert <span id='conv-arrow'>&#x21EA;</span>
     </div>}
 
