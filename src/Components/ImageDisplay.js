@@ -20,10 +20,23 @@ function ImageDisplay() {
       const currImage = new Image();
       currImage.src = previewImage;
 
-      canvas.height = uploadedImg.height + 1;
-      canvas.width = uploadedImg.width + 1;
+      canvas.height = uploadedImg.height;
+      canvas.width = uploadedImg.width;
+      const scale = currImage.height / currImage.width;
+
+      const display = {
+        height : uploadedImg.height,
+        width : uploadedImg.width,
+      }
+      if (display.width > display.height) {
+        display.height = display.height*scale;
+      }
+      else {
+        display.width = display.width*scale;
+      }
+
       
-      ctx.drawImage(currImage,0,0, currImage.width, currImage.height,0,0, canvas.width*0.95, canvas.height*0.95);
+      ctx.drawImage(currImage,0,0, currImage.width, currImage.height,(canvas.width-display.width)/2,(canvas.height-display.height)/2, display.width, display.height);
     }
 
   return (
@@ -44,7 +57,7 @@ function ImageDisplay() {
 
     <div className='ImageConvertor'>
       <div className='ConvertedImage'>
-        <canvas ref={canvRef} id="canvas"/>
+        <canvas height={100} width={200} ref={canvRef} id="canvas"/>
       </div>
     </div>
     </div>
