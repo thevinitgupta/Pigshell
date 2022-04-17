@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  useRef, useState } from 'react'
 import "../Css/ImageDisplay.css"
 
 function ImageDisplay() {
     const [imageToConvert, setImageToConvert] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
     const uploadRef = useRef(null);
     const canvRef = useRef(null);
@@ -14,9 +13,6 @@ function ImageDisplay() {
         setPreviewImage(URL.createObjectURL(event.target.files[0]));
     }
 
-    const draw = (ctx, image) => {
-      
-    }
     const loadImageToCanvas = ()=>{
       const canvas = canvRef.current;
       const uploadedImg = uploadRef.current;
@@ -37,7 +33,7 @@ function ImageDisplay() {
     <input type="file" accept="image/*" name="uploadedImage" id="uploadedImage" onChange={fileChangedHandler}/>
 
     {imageToConvert!=null && <div className='ImagePreview'>
-        <img src={previewImage} alt="to convert" ref={uploadRef} onLoad={()=>{setImageLoaded(true); loadImageToCanvas();}} onChange={()=>{loadImageToCanvas()}}/>
+        <img src={previewImage} alt="to convert" ref={uploadRef} onLoad={()=>{ loadImageToCanvas();}} onChange={()=>{loadImageToCanvas()}}/>
     </div>}
 
     {imageToConvert!=null && <div className='ConvertBtn'>
