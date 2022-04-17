@@ -73,3 +73,11 @@
     align-items: center;
     justify-content: center;
 }
+#canvas{
+    display: inline-block;
+    /* width: 100%; */
+    height: 100%;
+    max-width: 350px;
+    border: none;
+    object-fit: contain;
+}
