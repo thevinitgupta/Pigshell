@@ -24,8 +24,14 @@ function ImageDisplay() {
       canvas.width = currImage.width;
 
       effect = new AsciiEffect(ctx,canvas.width, canvas.height, currImage);
-      ctx.font = '10px Fira Code'
-      effect.draw(10,"#06ef40");
+      ctx.font = '9px Fira Code'
+      effect.draw(9,"#ffffff");
+      const imgUrl = canvas.toDataURL("image/png");
+      // const imgName = "pigshell";
+      // const download = document.createElement("a");
+      // download.href = imgUrl;
+      // download.download = imgName;
+      // download.click();
     }
 
   return (
