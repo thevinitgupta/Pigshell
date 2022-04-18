@@ -1,5 +1,5 @@
 import React, {  useRef, useState } from 'react'
-import map from "../Functions/MapValue"
+import AsciiEffect from "../Functions/AsciiEffect"
 import "../Css/ImageDisplay.css"
 
 function ImageDisplay() {
@@ -14,7 +14,7 @@ function ImageDisplay() {
         setImageToConvert(new Image(event.target.files[0]));
         setPreviewImage(URL.createObjectURL(event.target.files[0]));
     }
-
+    let effect;
     const loadImageToCanvas = ()=>{
       const canvas = canvRef.current;
       const ctx = canvas.getContext('2d');
@@ -24,18 +24,20 @@ function ImageDisplay() {
       canvas.height = currImage.height;
       canvas.width = currImage.width;
 
-      ctx.drawImage(currImage, 0,0, canvas.width, canvas.height);
-      const scannedImg = ctx.getImageData(0,0, canvas.width, canvas.height);
-      console.log(scannedImg)
-      let scannedData = scannedImg.data;
-        for(let i=0;i<scannedData.length; i+=4){
-          let total = scannedData[i]+scannedData[i+1]+scannedData[i+2];
-          const avgColorValue = total/3;
-          scannedImg.data[i] = avgColorValue;
-          scannedImg.data[i+1] = avgColorValue;
-          scannedImg.data[i+2] = avgColorValue;
-        }
-        ctx.putImageData(scannedImg,0,0);
+      effect = new AsciiEffect(ctx,canvas.width, canvas.height, currImage);
+
+      // ctx.drawImage(currImage, 0,0, canvas.width, canvas.height);
+      // const scannedImg = ctx.getImageData(0,0, canvas.width, canvas.height);
+      // console.log(scannedImg)
+      // let scannedData = scannedImg.data;
+      //   for(let i=0;i<scannedData.length; i+=4){
+      //     let total = scannedData[i]+scannedData[i+1]+scannedData[i+2];
+      //     const avgColorValue = total/3;
+      //     scannedImg.data[i] = avgColorValue;
+      //     scannedImg.data[i+1] = avgColorValue;
+      //     scannedImg.data[i+2] = avgColorValue;
+      //   }
+      //   ctx.putImageData(scannedImg,0,0);
     }
 
   return (
