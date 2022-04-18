@@ -1,9 +1,11 @@
 import React, {  useRef, useState } from 'react'
+import map from "../Functions/MapValue"
 import "../Css/ImageDisplay.css"
 
 function ImageDisplay() {
     const [imageToConvert, setImageToConvert] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
+    const density = " .:-=+*#%@"
 
     const uploadRef = useRef(null);
     const canvRef = useRef(null);
@@ -15,28 +17,25 @@ function ImageDisplay() {
 
     const loadImageToCanvas = ()=>{
       const canvas = canvRef.current;
-      const uploadedImg = uploadRef.current;
       const ctx = canvas.getContext('2d');
       const currImage = new Image();
       currImage.src = previewImage;
 
-      canvas.height = uploadedImg.height;
-      canvas.width = uploadedImg.width;
-      const scale = currImage.height / currImage.width;
+      canvas.height = currImage.height;
+      canvas.width = currImage.width;
 
-      const display = {
-        height : uploadedImg.height,
-        width : uploadedImg.width,
-      }
-      if (display.width > display.height) {
-        display.height = display.height*scale;
-      }
-      else {
-        display.width = display.width*scale;
-      }
-
-      
-      ctx.drawImage(currImage,0,0, currImage.width, currImage.height,(canvas.width-display.width)/2,(canvas.height-display.height)/2, display.width, display.height);
+      ctx.drawImage(currImage, 0,0, canvas.width, canvas.height);
+      const scannedImg = ctx.getImageData(0,0, canvas.width, canvas.height);
+      console.log(scannedImg)
+      let scannedData = scannedImg.data;
+        for(let i=0;i<scannedData.length; i+=4){
+          let total = scannedData[i]+scannedData[i+1]+scannedData[i+2];
+          const avgColorValue = total/3;
+          scannedImg.data[i] = avgColorValue;
+          scannedImg.data[i+1] = avgColorValue;
+          scannedImg.data[i+2] = avgColorValue;
+        }
+        ctx.putImageData(scannedImg,0,0);
     }
 
   return (
