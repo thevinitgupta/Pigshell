@@ -1,8 +1,8 @@
+import Cell from "./Cell";
 
 
 class AsciiEffect {
     #imageCellArray = [];
-    #symbols = [];
     #pixels = [];
     #ctx;
     #width;
@@ -16,10 +16,10 @@ class AsciiEffect {
         console.log(this.#pixels);
     }
     #convertToSymbol(g){
-        if(g> 245) return '@';
-        else if(g > 225) return '#';
-        else if(g > 200) return '$';
-        else if(g > 185) return '&';
+        if(g> 245) return 'G';
+        else if(g > 225) return 'H';
+        else if(g > 200) return '&';
+        else if(g > 185) return 'S';
         else if(g > 165) return '%';
         else if(g > 145) return 'W';
         else if(g > 120) return '+';
@@ -40,10 +40,22 @@ class AsciiEffect {
                     let total = this.#pixels.data[pos]+this.#pixels.data[pos+1]+this.#pixels.data[pos+2];
                     const avgColorValue = total/3;
                     const symbol = this.#convertToSymbol(avgColorValue);
-                    this.#imageCellArray.push(x,y, symbol, color);
+                    this.#imageCellArray.push(new Cell(x,y, symbol, color));
                 }
             }
         }
+        console.log(this.#imageCellArray);
+    }
+    #drawAscii(){
+        this.#ctx.fillStyle = "#000000"
+        this.#ctx.fillRect(0,0, this.#width, this.#height);
+        for(let i=0;i<this.#imageCellArray.length;i++){
+            this.#imageCellArray[i].draw(this.#ctx);
+        }
+    }
+    draw(cellSize, color){
+        this.#scanImage(cellSize, color);
+        this.#drawAscii();
     }
 }
 

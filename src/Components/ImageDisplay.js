@@ -5,7 +5,6 @@ import "../Css/ImageDisplay.css"
 function ImageDisplay() {
     const [imageToConvert, setImageToConvert] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
-    const density = " .:-=+*#%@"
 
     const uploadRef = useRef(null);
     const canvRef = useRef(null);
@@ -25,19 +24,8 @@ function ImageDisplay() {
       canvas.width = currImage.width;
 
       effect = new AsciiEffect(ctx,canvas.width, canvas.height, currImage);
-
-      // ctx.drawImage(currImage, 0,0, canvas.width, canvas.height);
-      // const scannedImg = ctx.getImageData(0,0, canvas.width, canvas.height);
-      // console.log(scannedImg)
-      // let scannedData = scannedImg.data;
-      //   for(let i=0;i<scannedData.length; i+=4){
-      //     let total = scannedData[i]+scannedData[i+1]+scannedData[i+2];
-      //     const avgColorValue = total/3;
-      //     scannedImg.data[i] = avgColorValue;
-      //     scannedImg.data[i+1] = avgColorValue;
-      //     scannedImg.data[i+2] = avgColorValue;
-      //   }
-      //   ctx.putImageData(scannedImg,0,0);
+      ctx.font = '10px Fira Code'
+      effect.draw(10,"#06ef40");
     }
 
   return (
