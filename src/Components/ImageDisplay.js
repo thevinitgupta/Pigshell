@@ -27,11 +27,11 @@ function ImageDisplay() {
       ctx.font = '9px Fira Code'
       effect.draw(9,"#ffffff");
       const imgUrl = canvas.toDataURL("image/png");
-      // const imgName = "pigshell";
-      // const download = document.createElement("a");
-      // download.href = imgUrl;
-      // download.download = imgName;
-      // download.click();
+      const imgName = "pigshell";
+      const download = document.createElement("a");
+      download.href = imgUrl;
+      download.download = imgName;
+      download.click();
     }
 
   return (
