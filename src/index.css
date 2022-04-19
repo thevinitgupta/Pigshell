@@ -1,23 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Overlock&family=Rubik+Glitch&family=Yatra+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat+Alternates&family=Rubik+Glitch&family=Sniglet&display=swap');
 
 :root{
   --logo-font : 'Rubik Glitch', cursive;
-  --default-font : 'Overlock', cursive;
-  --heading-font : 'Yatra One', cursive;
+  --default-font : 'Montserrat Alternates', sans-serif;
+  --heading-font : 'Sniglet', cursive;
   --code-font : 'Fira Code', monospace;
   --default-background : #ebeeea;
-  --default-color : #3d3d3d;
-  --button-color : #4abcc0;
-  --default-code : #06ef40;
+  --default-color : #142F43;
+  --button-color : #516BEB;
+  --default-code : #00e94e;
   --default-logo : #f47b7b;
   
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--default-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--default-background);

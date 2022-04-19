@@ -1,11 +1,12 @@
 import './App.css';
 import ImageDisplay from './Components/ImageDisplay';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className="App">
-        <header id="logo">Pigshell</header>
-      <ImageDisplay/>
+      <Navbar/>
+      {/* <ImageDisplay/> */}
     </div>
   );
 }
