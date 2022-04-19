@@ -5,10 +5,12 @@
   --default-font : 'Overlock', cursive;
   --heading-font : 'Yatra One', cursive;
   --code-font : 'Fira Code', monospace;
-  --default-background : #212026;
-  --default-color : #CCCCCC;
+  --default-background : #ebeeea;
+  --default-color : #3d3d3d;
+  --button-color : #4abcc0;
   --default-code : #06ef40;
   --default-logo : #f47b7b;
+  
 }
 
 body {
@@ -25,6 +27,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 code {

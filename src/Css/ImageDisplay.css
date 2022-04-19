@@ -26,7 +26,7 @@
     content: 'Select file to Convert';
     display: inline-block;
     background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid var(--default-code);
+    border: 1px solid var(--button-color);
     border-radius: 3px;
     padding: 5px 8px;
     outline: none;
@@ -34,13 +34,13 @@
     user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
-    color: var(--default-code);
+    color: var(--button-color);
     text-shadow: none;
     font-weight: 500;
     font-size: 0.9rem;
 }
 #uploadImage:hover::before{
-    text-shadow: 1px 1px 5px rgba(119, 230, 130, 0.651);
+    text-shadow: 1px 1px 5px rgba(119, 230, 226, 0.651);
 }
 .ImagePreview{
     height: 85%;
@@ -63,17 +63,17 @@
     width: 60%;
     margin: 5px auto;
     padding: 4% 0;
-    border: 2px solid var(--default-code);
+    border: 2px solid var(--button-color);
     border-radius: 3px;
     font-weight: 600;
     color: var(--default-background);
-    background-color: var(--default-code);
+    background-color: var(--button-color);
     transition: all 250ms ease-in-out;
 }
 .ConvertBtn:hover{
     cursor: pointer;
     background-color: var(--default-background);
-    color: var(--default-code);
+    color: var(--button-color);
 }
 #conv-arrow{
     margin-left: 2px;
