@@ -24,8 +24,8 @@ function ImageDisplay() {
       canvas.width = currImage.width;
 
       effect = new AsciiEffect(ctx,canvas.width, canvas.height, currImage);
-      ctx.font = '9px Fira Code'
-      effect.draw(9,"#ffffff");
+      ctx.font = '7px Fira Code'
+      effect.draw(7,"#ffffff");
       const imgUrl = canvas.toDataURL("image/png");
       const imgName = "pigshell";
       const download = document.createElement("a");
@@ -38,7 +38,7 @@ function ImageDisplay() {
     <div className='ImageDisplay'>
     {/* <header>ImageDisplay</header> */}
     <div className='ImageUploader'>
-    <input type="file" accept="image/*" name="uploadedImage" id="uploadedImage" onChange={fileChangedHandler}/>
+    <input type="file" accept="image/*" name="uploadImage" id="uploadImage" onChange={fileChangedHandler}/>
 
     {imageToConvert!=null && <div className='ImagePreview'>
         <img src={previewImage} alt="to convert" ref={uploadRef} />
