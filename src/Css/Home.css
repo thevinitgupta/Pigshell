@@ -27,24 +27,26 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: #757c81;
+    margin-bottom: 5%;
 }
 .Home-ctas{
     width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-top: 3%;
-    flex: 0.2;
+    margin-top: 5%;
+    flex: 0.25;
 }
 .Home-img-conv{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    width: 30%;
-    height : 90%;
+    font-size: 1.35rem;
+    width: 50%;
+    height : 95%;
     min-width: 175px;
+    max-width: 220px;
     min-height: 60px;
     box-sizing: border-box;
     font-weight: 600;
@@ -70,6 +72,9 @@
         position: relative;
         z-index: 2;
     }
+    .Home-ctas{
+        margin-top: 7%;
+    }
     .Home-right{
         position: absolute;
         width: 70%;
@@ -82,7 +87,7 @@
         width: 100%;
     }
 }
-@media  screen and (max-width : 760px) {
+@media  screen and (max-width : 830px) {
     .Home-left{
         flex: 1;
     }
