@@ -22,6 +22,12 @@
 .head-code{
     color: #ff6634;
 }
+.Home-subhead{
+    margin-top: 3%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #757c81;
+}
 .Home-right{
     flex: 0.45;
     height: 100%;
