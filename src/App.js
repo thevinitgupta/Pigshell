@@ -10,7 +10,7 @@ function App() {
       <Navbar/>
       {/* <img src={Loader} alt="pig loader"/> */}
       {/* <ImageDisplay/> */}
-      <Home/>
+      <Home />
     </div>
   );
 }

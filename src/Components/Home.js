@@ -12,6 +12,9 @@ function Home() {
            <div className='Home-subhead'>
                You're in the right place. Try out our products.
            </div>
+           <div className='Home-ctas'>
+               <div className='Home-img-conv'>Convert Image</div>
+           </div>
        </div> 
        <div className='Home-right'>
            <img src={Camera} alt="camera"/>
