@@ -1,0 +1,20 @@
+.Home{
+    margin: 0 auto;
+    height: 75vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Home-left{
+    flex: 0.55;
+    height: 100%;
+}
+.Home-right{
+    flex: 0.45;
+    height: 100%;
+    object-fit: contain;
+}
+.Home-right>img {
+    width: 100%;
+}
