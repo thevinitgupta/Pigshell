@@ -9,6 +9,18 @@
 .Home-left{
     flex: 0.55;
     height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Home-head {
+    font-size: 5rem;
+    font-weight: lighter;
+    font-family: var(--logo-font);
+}
+.head-code{
+    color: #ff6634;
 }
 .Home-right{
     flex: 0.45;
