@@ -13,6 +13,11 @@ function ImageFilter() {
 
     const uploadRef = useRef(null);
     const canvRef = useRef(null);
+    const uploaderRef = useRef(null);
+
+    // function handleCustomUpload(){
+    //     uploaderRef.current.click();
+    // }
 
     function fileChangedHandler(event){
         setImageToConvert(new Image(event.target.files[0]));
@@ -44,10 +49,12 @@ function ImageFilter() {
         <div className='ImageUploader-head'>
             Ready to see the <span className="highlight-text">{`<magic?/>`}</span>
         </div>
-        <div className='ImageUpload-btn'>
+        <div className='ImageUpload-btn' onClick={()=>{
+            handleCustomUpload();
+        }}>
             Upload Image
         </div>
-        <input type="file" accept="image/*" name="uploadImage" id="uploadImage" onChange={fileChangedHandler}/>
+        <input type="file" ref={uploaderRef} accept="image/*" name="uploadImage" id="uploadImage" onChange={fileChangedHandler}/>
 
         {imageToConvert!=null && <div className='ImagePreview'>
             <img src={previewImage} alt="to convert" ref={uploadRef} />
@@ -65,7 +72,7 @@ function ImageFilter() {
                 <img className='Preview-BgImg Bg-Img-4' src={Obj4} alt="object"/>
             </div>
             <div className='PreviewGlass'>
-                <img src={Convert} className="ConvertImage" alt="conversion example"/>
+                <img src={Convert} className="ConvertPreview" alt="conversion example"/>
             </div>
         </div>
     </div>

@@ -15,9 +15,9 @@
     align-items: flex-start;
     flex-direction: column;
 }
-/* #uploadImage{
+#uploadImage{
     display: none;
-} */
+}
 .ImageUploader-head{
     flex: 0.2;
     margin-bottom: 4%;
@@ -74,7 +74,7 @@
 }
 .Bg-Img-1{
     top : 4%;
-    left : -4%;
+    left : -7%;
     animation-delay: 350ms;
     -webkit-animation-delay: 350ms;
     -webkit-animation-duration: 4s;
@@ -124,10 +124,14 @@
     box-shadow: 6px 10px 60px rgba(174, 174, 174, 0.371);
     position: relative;
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     object-fit: contain;
 }
-.ConvertImage {
+.ConvertPreview {
     height: 95%;
+    max-width: 100%;
 }
 .ConvertBtn{
     width: 60%;
@@ -180,5 +184,54 @@
     }
     100% {
         transform: translate(0%, 10%);
+    }
+}
+
+@media screen and (max-width : 895px){
+    .PreviewGlass{
+        height: 75%;
+    }
+    .ConvertPreview{
+        height: 90%;
+    }
+}
+@media screen and (max-width : 830px) {
+    .ImageFilter{
+        display: block;
+        position: relative;
+    }
+    .ImageUploader{
+        flex: 1;
+        position: relative;
+        z-index: 12;
+    }
+    .ImageUploader-head{
+        width: 85%;
+    }
+    .PreviewGlass{
+        display: none;
+    }
+    .PreviewImage{
+        display: block;
+        height: 100%;
+        width: 85%;
+        position: absolute;
+        top: 10%;
+        left: 0;
+    }
+    .PreviewBackground{
+        width: 100%;
+        height: 80%;
+    }
+    .Preview-BgImg{
+        height: 40%;
+        min-height: 100px;
+        max-height: 150px;
+        
+    }
+}
+@media screen and (max-width : 630px){
+    .PreviewImage{
+        display: none;
     }
 }
