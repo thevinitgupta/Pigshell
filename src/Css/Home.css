@@ -19,9 +19,6 @@
     font-weight: lighter;
     font-family: var(--logo-font);
 }
-.head-code{
-    color: var(--default-logo);
-}
 .Home-subhead{
     margin-top: 3%;
     font-size: 1.5rem;

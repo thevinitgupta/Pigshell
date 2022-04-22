@@ -9,4 +9,7 @@
   font-size: 3rem;
   color: var(--default-logo);
 }
+.highlight-text{
+  color: var(--default-logo);
+}
 

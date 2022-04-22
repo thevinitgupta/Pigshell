@@ -7,7 +7,7 @@ function Home() {
     <div className='Home'>
        <div className='Home-left'>
            <div className='Home-head'>
-           Love <span className='head-code'>tech</span> and using filters?
+           Love <span className='highlight-text'>tech</span> and using filters?
            </div>
            <div className='Home-subhead'>
                You're in the right place. Try out our products.
