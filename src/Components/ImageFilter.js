@@ -15,9 +15,9 @@ function ImageFilter() {
     const canvRef = useRef(null);
     const uploaderRef = useRef(null);
 
-    // function handleCustomUpload(){
-    //     uploaderRef.current.click();
-    // }
+    function handleCustomUpload(){
+        uploaderRef.current.click();
+    }
 
     function fileChangedHandler(event){
         setImageToConvert(new Image(event.target.files[0]));
