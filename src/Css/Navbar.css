@@ -138,3 +138,11 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width : 470px) {
+    .Dropdown{
+        width: 100vw;
+        min-width: unset;
+        max-width: 100vw;
+    }
+}
