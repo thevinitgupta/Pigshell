@@ -39,13 +39,70 @@
     cursor: pointer;
 }
 
-.ImagePreview{
-    height: 85%;
-    width: 100%;
+.PreviewImage{
+    flex: 0.5;
+    height: 100%;
+    overflow-x: visible;
+    overflow-y: visible;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    position: relative;
+}
+.PreviewBackground{
+    height: 80vh;
+    width: 100%;
+    overflow: visible;
+    position: absolute;
+    z-index: 10;
+}
+.Preview-BgImg{
+    position: absolute;
+    height: 40%;
+    min-height: 140px;
+    max-height: 200px;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: floating;
+    animation-name: floating;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+.Bg-Img-1{
+    top : 8%;
+    left : 2%;
+    animation-delay: 350ms;
+    -webkit-animation-delay: 350ms;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+}
+.Bg-Img-2{
+    top : -1%;
+    right : 1%;
+    animation-delay: 850ms;
+    -webkit-animation-delay: 850ms;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+.Bg-Img-3{
+    bottom : -6%;
+    left : 12%;
+    animation-delay: 730ms;
+    -webkit-animation-delay: 730ms;
+    -webkit-animation-duration: 3.5s;
+    animation-duration: 3.5s;
+}
+.Bg-Img-4{
+    bottom : 3%;
+    right : 2%;
+    animation-delay: 900ms;
+    -webkit-animation-delay: 900ms;
+    -webkit-animation-duration: 4.5s;
+    animation-duration: 4.5s;
 }
 .ImagePreview>img{
     display: block;
@@ -99,4 +156,13 @@
     justify-content: center;
     max-width: 350px;
     max-height: 290px;
+}
+
+@keyframes floating {
+    0%{
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0%, 10%);
+    }
 }

@@ -1,6 +1,10 @@
 import React, {useState, useRef} from 'react'
 import AsciiEffect from '../Functions/AsciiEffect';
 import "../Css/ImageFilter.css"
+import Obj1 from "../Assets/FilterPage/1.png"
+import Obj2 from "../Assets/FilterPage/2.png"
+import Obj3 from "../Assets/FilterPage/3.png"
+import Obj4 from "../Assets/FilterPage/4.png"
 
 function ImageFilter() {
     const [imageToConvert, setImageToConvert] = useState(null);
@@ -51,6 +55,14 @@ function ImageFilter() {
         {imageToConvert!=null && <div className='ConvertBtn' onClick={()=>{ loadImageToCanvas();}}>
             Convert <span id='conv-arrow'>&#x21EA;</span>
         </div>}
+        </div>
+        <div className='PreviewImage'>
+            <div className='PreviewBackground'>
+                <img className='Preview-BgImg Bg-Img-1' src={Obj1} alt="object"/>
+                <img className='Preview-BgImg Bg-Img-2' src={Obj2} alt="object"/>
+                <img className='Preview-BgImg Bg-Img-3' src={Obj3} alt="object"/>
+                <img className='Preview-BgImg Bg-Img-4' src={Obj4} alt="object"/>
+            </div>
         </div>
     </div>
   )
