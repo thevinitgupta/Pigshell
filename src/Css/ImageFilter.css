@@ -15,9 +15,9 @@
     align-items: flex-start;
     flex-direction: column;
 }
-#uploadImage{
+/* #uploadImage{
     display: none;
-}
+} */
 .ImageUploader-head{
     flex: 0.2;
     margin-bottom: 4%;
@@ -73,8 +73,8 @@
     animation-timing-function: ease-in-out;
 }
 .Bg-Img-1{
-    top : 8%;
-    left : 2%;
+    top : 4%;
+    left : -4%;
     animation-delay: 350ms;
     -webkit-animation-delay: 350ms;
     -webkit-animation-duration: 4s;
@@ -112,6 +112,22 @@
     border: none;
     border-radius: 5px;
     object-fit: contain;
+}
+.PreviewGlass {
+    width: 90%;
+    height: 80%;
+    backdrop-filter: blur(10px) saturate(181%);
+    -webkit-backdrop-filter: blur(10px) saturate(181%);
+    background-color: rgba(235, 238, 234, 0.33);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 6px 10px 60px rgba(174, 174, 174, 0.371);
+    position: relative;
+    z-index: 20;
+    object-fit: contain;
+}
+.ConvertImage {
+    height: 95%;
 }
 .ConvertBtn{
     width: 60%;

@@ -5,6 +5,7 @@ import Obj1 from "../Assets/FilterPage/1.png"
 import Obj2 from "../Assets/FilterPage/2.png"
 import Obj3 from "../Assets/FilterPage/3.png"
 import Obj4 from "../Assets/FilterPage/4.png"
+import Convert from "../Assets/FilterPage/Convert.png"
 
 function ImageFilter() {
     const [imageToConvert, setImageToConvert] = useState(null);
@@ -62,6 +63,9 @@ function ImageFilter() {
                 <img className='Preview-BgImg Bg-Img-2' src={Obj2} alt="object"/>
                 <img className='Preview-BgImg Bg-Img-3' src={Obj3} alt="object"/>
                 <img className='Preview-BgImg Bg-Img-4' src={Obj4} alt="object"/>
+            </div>
+            <div className='PreviewGlass'>
+                <img src={Convert} className="ConvertImage" alt="conversion example"/>
             </div>
         </div>
     </div>

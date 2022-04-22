@@ -1,6 +1,6 @@
 import React, {  useRef, useState } from 'react'
 import AsciiEffect from "../Functions/AsciiEffect"
-import "../Css/ImageDisplay.css"
+import "../Css/ImageFilter.css"
 
 function ImageDisplay() {
     const [imageToConvert, setImageToConvert] = useState(null);
