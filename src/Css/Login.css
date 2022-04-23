@@ -1,4 +1,4 @@
-.Signup {
+.Login {
     width: 100%;
     max-width: 100vw;
     margin: 0 auto;
@@ -8,7 +8,7 @@
     align-items: center;
     text-align: left;
 }
-.Signup-left{
+.Login-left{
     flex: 0.5;
     height: 90%;
     /* border: 2px solid var(--default-code); */
@@ -17,7 +17,7 @@
     justify-content: space-evenly;
     align-items: center;
 }
-.Signup-head{
+.Login-head{
     flex: 0.12;
     width: 92%;
     font-size: 2.5rem;
@@ -30,20 +30,20 @@
     align-items: flex-start;
     justify-content: space-around;
 }
-.Signup-head>div {
+.Login-head>div {
     width: 100%;
 }
-.Signup-subhead{
+.Login-subhead{
     width: 80%;
     opacity: 0.8;
     font-size: 1rem;
     font-weight: 400;
 }
-.Signup-card{
-    flex: 0.65;
+.Login-card{
+    flex: 0.5;
     width: 92%;
 }
-.Signup-form{
+.Login-form{
     height: 100%;
     width: 100%;
     display: flex;
@@ -51,7 +51,7 @@
     align-items: flex-start;
     justify-content: space-evenly;
 }
-.Signup-input{
+.Login-input{
     width: 70%;
     flex: 0.3;
     max-height: 50px;
@@ -64,15 +64,15 @@
     position: relative;
     transition: all 350ms ease-in-out;
 }
-.Signup-input::placeholder{
+.Login-input::placeholder{
     color: var(--default-font);
     opacity: 0.6;
     font-size: 1.2rem;
 }
-.Signup-input:focus{
+.Login-input:focus{
     box-shadow: 1px 1px 10px #516beb6a;
 }
-#signup-btn{
+#login-btn{
     font-size: 1.7rem;
     background-color: var(--button-color);
     color: var(--default-background);
@@ -80,15 +80,15 @@
     border-radius: 4px;
     padding: 2% 5%;
 }
-#signup-btn:hover{
+#login-btn:hover{
     cursor: pointer;
 }
-.Signup-footer{
+.Login-footer{
     flex: 0.15;
     width: 90%;
     font-size: 1.05rem;
 }
-.Signup-footer > p{
+.Login-footer > p{
     width: 100%;
     margin: 0;
     margin-block-start: 0;
@@ -98,7 +98,7 @@
     text-decoration: none;
     font-weight: 600;
 }
-.Signup-right{
+.Login-right{
     position: relative;
     flex: 0.5;
     height: 100%;
@@ -113,7 +113,7 @@
     justify-content: center;
     align-items: center;
 }
-.Signup-welcome{
+.Login-welcome{
     position: relative;
     z-index: 2;
     height: 30%;
@@ -127,20 +127,20 @@
     top: -2%;
     left: -5%;
 }
-.Signup-welcome>h2{
+.Login-welcome>h2{
     padding: 0;
     width: 100%;
     font-size: 2.2rem;
     text-shadow: 2px 1px 4px #233e53;
 }
-.Signup-welcome>p{
+.Login-welcome>p{
     padding: 0;
     width: 90%;
     margin-top: 3%;
     font-size: 1.4rem;
     text-shadow: 2px 1px 4px #233e53;
 }
-.Signup-img{
+.Login-img{
     width: 100%;
     height: 70%;
     object-fit: contain;
@@ -149,18 +149,18 @@
     left: 20%;
     /* filter: drop-shadow(2px -2px 15px #a17c5e6b); */
 }
-.Signup-img>img{
+.Login-img>img{
     height: 100%;
 }
 @media screen  and (max-width : 1100px){
-    .Signup-welcome{
+    .Login-welcome{
         width: 80%;
     }
-    .Signup-welcome>h2{
+    .Login-welcome>h2{
         font-size: 2rem;
         text-shadow: 2px 1px 4px #233e53;
     }
-    .Signup-welcome>p{
+    .Login-welcome>p{
         padding: 0;
         width: 90%;
         margin-top: 3%;
@@ -169,53 +169,53 @@
     }    
 }
 @media screen  and (max-width:930px){
-    .Signup-left{
+    .Login-left{
         flex: 0.6;
     }
-    .Signup-input{
+    .Login-input{
         width: 90%;
     }
-    .Signup-right{
+    .Login-right{
         flex: 0.4;
     }
-    .Signup-welcome{
+    .Login-welcome{
         width: 90%;
         left: 1%;
     }
-    .Signup-welcome>h2{
+    .Login-welcome>h2{
         font-size: 1.7rem;
     }
-    .Signup-welcome>p{
+    .Login-welcome>p{
         font-size: 1.2rem;
     }
 }
 @media screen  and (max-width:830px){
-    .Signup-left{
+    .Login-left{
         flex: 1;
     }
-    .Signup-input{
+    .Login-input{
         width: 75%;
     }
-    .Signup-right{
+    .Login-right{
         display: none;
     }
 }
 @media screen  and (max-width:576px){
-    .Signup-left{
+    .Login-left{
         flex: 1;
     }
-    .Signup-input{
+    .Login-input{
         width: 85%;
     }
 }
 @media screen  and (max-width:520px){
-    .Signup-left{
+    .Login-left{
         flex: 1;
     }
-    .Signup-head{
+    .Login-head{
         text-align: center;
     }
-    .Signup-input{
+    .Login-input{
         width: 95%;
     }
 }

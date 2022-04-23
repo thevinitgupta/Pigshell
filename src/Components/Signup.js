@@ -31,7 +31,7 @@ function Signup() {
                 </form>
             </div>
             <div className='Signup-footer'>
-                <p>Already have account? <a className='login-redirect highlight-text' href='/'>Login Now</a></p>
+                <p>Already have account? <a className='login-redirect highlight-text' href='/login'>Login Now</a></p>
             </div>
         </div>
         <div className='Signup-right'>

@@ -1,4 +1,5 @@
 import './App.css';
+import Login from './Components/Login';
 import Signup from './Components/Signup';
 // import Navbar from './Components/Navbar';
 // import Home from './Components/Home';
@@ -12,7 +13,8 @@ function App() {
       {/* <img src={Loader} alt="pig loader"/> */}
       {/* <ImageFilter/> */}
       {/* <Home /> */}
-      <Signup/>
+      {/* <Signup/> */}
+      <Login/>
     </div>
   );
 }
