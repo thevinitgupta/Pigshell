@@ -17,13 +17,41 @@
     align-items: center;
 }
 .Signup-head{
-    flex: 0.15;
+    flex: 0.12;
     text-align: left;
     width: 92%;
     font-size: 2.5rem;
     font-weight: 700;
     color: #233e53;
     font-family: var(--default-font);
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.Signup-subhead{
+    width: 80%;
+    opacity: 0.8;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.Signup-card{
+    flex: 0.75;
+    width: 92%;
+}
+.Signup-form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.Signup-input{
+    width: 70%;
+    flex: 0.3;
+    max-height: 50px;
 }
 .Signup-right{
     position: relative;
