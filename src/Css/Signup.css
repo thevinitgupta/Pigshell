@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    text-align: left;
 }
 .Signup-left{
     flex: 0.5;
@@ -18,7 +19,6 @@
 }
 .Signup-head{
     flex: 0.12;
-    text-align: left;
     width: 92%;
     font-size: 2.5rem;
     font-weight: 700;
@@ -30,6 +30,9 @@
     align-items: flex-start;
     justify-content: space-around;
 }
+.Signup-head>div {
+    width: 100%;
+}
 .Signup-subhead{
     width: 80%;
     opacity: 0.8;
@@ -37,7 +40,7 @@
     font-weight: 400;
 }
 .Signup-card{
-    flex: 0.75;
+    flex: 0.65;
     width: 92%;
 }
 .Signup-form{
@@ -52,6 +55,48 @@
     width: 70%;
     flex: 0.3;
     max-height: 50px;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-family: var(--default-font);
+    outline: none;
+    position: relative;
+    transition: all 350ms ease-in-out;
+}
+.Signup-input::placeholder{
+    color: var(--default-font);
+    opacity: 0.6;
+    font-size: 1.2rem;
+}
+.Signup-input:focus{
+    box-shadow: 1px 1px 10px #516beb6a;
+}
+#signup-btn{
+    font-size: 1.7rem;
+    background-color: var(--button-color);
+    color: var(--default-background);
+    border: none;
+    border-radius: 4px;
+    padding: 2% 5%;
+}
+#signup-btn:hover{
+    cursor: pointer;
+}
+.Signup-footer{
+    flex: 0.15;
+    width: 90%;
+    font-size: 1.05rem;
+}
+.Signup-footer > p{
+    width: 100%;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.login-redirect{
+    text-decoration: none;
+    font-weight: 600;
 }
 .Signup-right{
     position: relative;
@@ -73,7 +118,6 @@
     z-index: 2;
     height: 30%;
     width: 60%;
-    text-align: left;
     font-weight: 400;
     color: #ffffff;
     font-size: 1.4rem;
@@ -87,7 +131,6 @@
     padding: 0;
     width: 100%;
     font-size: 2.2rem;
-    text-align: left;
     text-shadow: 2px 1px 4px #233e53;
 }
 .Signup-welcome>p{
@@ -95,7 +138,6 @@
     width: 90%;
     margin-top: 3%;
     font-size: 1.4rem;
-    text-align: left;
     text-shadow: 2px 1px 4px #233e53;
 }
 .Signup-img{
@@ -108,4 +150,49 @@
 }
 .Signup-img>img{
     height: 100%;
+}
+@media screen  and (max-width:930px){
+    .Signup-left{
+        flex: 0.6;
+    }
+    .Signup-input{
+        width: 90%;
+    }
+    .Signup-right{
+        flex: 0.4;
+    }
+    .Signup-welcome{
+        width: 90%;
+        left: 1%;
+    }
+}
+@media screen  and (max-width:830px){
+    .Signup-left{
+        flex: 1;
+    }
+    .Signup-input{
+        width: 75%;
+    }
+    .Signup-right{
+        display: none;
+    }
+}
+@media screen  and (max-width:576px){
+    .Signup-left{
+        flex: 1;
+    }
+    .Signup-input{
+        width: 85%;
+    }
+}
+@media screen  and (max-width:520px){
+    .Signup-left{
+        flex: 1;
+    }
+    .Signup-head{
+        text-align: center;
+    }
+    .Signup-input{
+        width: 95%;
+    }
 }

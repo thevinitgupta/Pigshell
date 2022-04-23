@@ -10,23 +10,28 @@ function Signup() {
     <div className='Signup'>
         <div className='Signup-left'>
             <div className='Signup-head'>
-                Sign Up
+                <div>Sign Up</div>
                 <div className='Signup-subhead'>
                     Create account to access images from anywhere
                 </div>
             </div>
             <div className='Signup-card'>
                 <form className='Signup-form'>
-                    <input className='Signup-input' id='signup-name' value={name} onChange={(e)=>{
+                    {/* <label for="name">Your Name</label> */}
+                    <input className='Signup-input' name='name' placeholder='Name' id='signup-name' autoComplete='off' value={name} onChange={(e)=>{
                         setName(e.target.value);
                     }}/>
-                    <input className='Signup-input' id='signup-email' value={email} onChange={(e)=>{
+                    <input className='Signup-input' placeholder='Email' autoComplete='off' id='signup-email' value={email} onChange={(e)=>{
                         setEmail(e.target.value);
                     }}/>
-                    <input className='Signup-input' id='signup-password' value={password} onChange={(e)=>{
+                    <input className='Signup-input' placeholder='Password' type='password' autoComplete='off' id='signup-password' value={password} onChange={(e)=>{
                         setPassword(e.target.value);
                     }}/>
+                    <button type="submit" id='signup-btn'>Create Account</button>
                 </form>
+            </div>
+            <div className='Signup-footer'>
+                <p>Already have account? <a className='login-redirect highlight-text' href='/'>Login Now</a></p>
             </div>
         </div>
         <div className='Signup-right'>
