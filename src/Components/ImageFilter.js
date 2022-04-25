@@ -20,23 +20,23 @@ function ImageFilter() {
     }
 
     function fileChangedHandler(event){
-        setImageToConvert(new Image(event.target.files[0]));
-        setPreviewImage(URL.createObjectURL(event.target.files[0]));
+        const currImage = new Image();
+        currImage.src = URL.createObjectURL(event.target.files[0]);
+        setImageToConvert(currImage);
     }
     let effect;
     const loadImageToCanvas = ()=>{
       const canvas = canvRef.current;
       const ctx = canvas.getContext('2d');
-      const currImage = new Image();
-      currImage.src = previewImage;
 
-      canvas.height = currImage.height;
-      canvas.width = currImage.width;
+      canvas.height = imageToConvert.height;
+      canvas.width = imageToConvert.width;
 
-      effect = new AsciiEffect(ctx,canvas.width, canvas.height, currImage);
+      effect = new AsciiEffect(ctx,canvas.width, canvas.height, imageToConvert);
       ctx.font = '7px Fira Code'
       effect.draw(7,"#ffffff");
       const imgUrl = canvas.toDataURL("image/png");
+      setPreviewImage(imgUrl)
       const imgName = "pigshell";
       const download = document.createElement("a");
       download.href = imgUrl;
@@ -72,9 +72,12 @@ function ImageFilter() {
                 <img className='Preview-BgImg Bg-Img-4' src={Obj4} alt="object"/>
             </div>
             <div className='PreviewGlass'>
-                <img src={Convert} className="ConvertPreview" alt="conversion example"/>
+                {previewImage==null ?<img src={Convert} className="ConvertPreview" alt="conversion example"/> : <img src={previewImage} className="ConvertPreview" alt="conversion example"/>}
             </div>
         </div>
+        <div className='ConvertedImage'>
+        <canvas height={100} width={200} ref={canvRef} id="canvas"/>
+      </div>
     </div>
   )
 }
