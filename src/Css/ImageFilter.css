@@ -142,15 +142,17 @@
 }
 .FilteredPreview{
     height: 60%;
+    border: none;
+    border-radius: 4px;
 }
 .PreviewBtns{
     width: 100%;
     flex: 0.15;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
-.Convert-btn, .downloadImg-btn{
+.Convert-btn, .downloadImg-btn, .uploadImg-btn{
     background-color: var(--button-color);
     color: var(--default-background);
     font-size: 1.1rem;
@@ -162,7 +164,7 @@
 .downloadImg-btn{
     background-color: var(--default-logo);
 }
-.Convert-btn:hover{
+.Convert-btn:hover, .downloadImg-btn:hover, .uploadImg-btn:hover{
     cursor: pointer;
 
 }

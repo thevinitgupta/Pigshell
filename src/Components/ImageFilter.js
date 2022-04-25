@@ -49,6 +49,10 @@ function ImageFilter() {
         download.click();
         setPreviewImage(null);
     }
+
+    const uploadImage = () =>{
+        
+    }
   return (
     <div className='ImageFilter'>
         <div className='ImageUploader'>
@@ -83,6 +87,9 @@ function ImageFilter() {
                 <div className='PreviewBtns'>
                     <div className='downloadImg-btn' onClick={downloadImage}>
                         Download
+                    </div>
+                    <div className='uploadImg-btn' onClick={uploadImage}>
+                        Upload
                     </div>
                 </div>}
             </div>
