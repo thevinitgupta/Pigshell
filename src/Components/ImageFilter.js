@@ -79,6 +79,12 @@ function ImageFilter() {
             </div>
             <div className='PreviewGlass'>
                 {previewImage==null ?<img src={Convert} className="ConvertPreview" alt="conversion example"/> : <img src={previewImage} className="ConvertPreview FilteredPreview" alt="conversion example"/>}
+                {previewImage!=null && 
+                <div className='PreviewBtns'>
+                    <div className='downloadImg-btn' onClick={downloadImage}>
+                        Download
+                    </div>
+                </div>}
             </div>
         </div>
         <div className='ConvertedImage'>
