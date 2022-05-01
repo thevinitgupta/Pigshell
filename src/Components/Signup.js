@@ -6,6 +6,11 @@ function Signup() {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+
+    const handleSignup = (e) => {
+        e.preventDefault();
+        console.log({name : name, email : email, password : password});
+    }
    return (
     <div className='Signup'>
         <div className='Signup-left'>
@@ -27,7 +32,8 @@ function Signup() {
                     <input className='Signup-input' placeholder='Password' type='password' autoComplete='off' id='signup-password' value={password} onChange={(e)=>{
                         setPassword(e.target.value);
                     }}/>
-                    <button type="submit" id='signup-btn'>Create Account</button>
+                    <button type="submit" id='signup-btn' 
+                    onClick={handleSignup}>Create Account</button>
                 </form>
             </div>
             <div className='Signup-footer'>

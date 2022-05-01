@@ -5,6 +5,12 @@ import "../Css/Login.css"
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        console.log({ email : email, password : password});
+    }
+
    return (
     <div className='Login'>
         <div className='Login-left'>
@@ -20,10 +26,10 @@ function Login() {
                     <input className='Login-input' placeholder='Email' autoComplete='off' id='login-email' value={email} onChange={(e)=>{
                         setEmail(e.target.value);
                     }}/>
-                    <input className='Login-input' placeholder='Password' type='password' autoComplete='off' id='login-password' value={password} onChange={(e)=>{
+                    <input className='Login-input'  placeholder='Password' type='password' autoComplete='off' id='login-password' value={password} onChange={(e)=>{
                         setPassword(e.target.value);
                     }}/>
-                    <button type="submit" id='login-btn'>Log In</button>
+                    <button type="submit" onClick={handleLogin} id='login-btn'>Log In</button>
                 </form>
             </div>
             <div className='Login-footer'>
