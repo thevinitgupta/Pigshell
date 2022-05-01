@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import Logo from "../Assets/pig.png"
 import "../Css/Navbar.css"
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   // const [useSandwich, setUseSandwich] = useState(true);
   const [openDropDown, setOpenDropDown] = useState(true);
+
+  const navigate = useNavigate();
 
   const toggleDropDown = () =>{
     setOpenDropDown((prevValue)=>{
@@ -18,10 +21,18 @@ function Navbar() {
             <img className='pigshell-logo' src={Logo} alt="pig logo"/>
         </div>
         <div className='Navmenu'>
-            <div className='Nav-item'>Image Filter</div>
-            <div className='Nav-item'>Video Filter</div>
-            <div className='Nav-item'>Signup</div>
-            <div className='Login-Btn'>Login</div>
+            <div className='Nav-item' onClick={()=>{
+              navigate("/image");
+            }}>Image Filter</div>
+            <div className='Nav-item' onClick={()=>{
+              navigate("/video");
+            }}>Video Filter</div>
+            <div className='Nav-item' onClick={()=>{
+              navigate("/signup");
+            }}>Signup</div>
+            <div className='Login-Btn' onClick={()=>{
+              navigate("/login");
+            }}>Login</div>
         </div>
         <div className='Nav-Sandwich' onClick={toggleDropDown}>
           <div className='Sandwich Layer-1'></div>
@@ -33,10 +44,18 @@ function Navbar() {
               <div className='cross cross-left'></div>
               <div className='cross cross-right'></div>
             </div>
-            <div className='Drop-item'>Image Filter</div>
-            <div className='Drop-item'>Video Filter</div>
-            <div className='Drop-item'>Signup</div>
-            <div className='Drop-item'><div className="Drop-Login">Login</div></div>
+            <div className='Drop-item' onClick={()=>{
+              navigate("/image");
+            }}>Image Filter</div>
+            <div className='Drop-item' onClick={()=>{
+              navigate("/video");
+            }}>Video Filter</div>
+            <div className='Drop-item' onClick={()=>{
+              navigate("/signup");
+            }}>Signup</div>
+            <div className='Drop-item'><div className="Drop-Login" onClick={()=>{
+              navigate("/login");
+            }}>Login</div></div>
           </div>
     </nav>
   )

@@ -11,6 +11,20 @@ const appwrite = new Appwrite();
 class AppwriteService {
     constructor() {
         appwrite.setEndpoint(config.endpoint).setProject(config.projectId);
+
+        this.account = appwrite.account;
+    }
+
+    createAccount = (email, name, password) =>{
+        return this.account.create("unique()",email, password,name)
+    }
+
+    loginUser = (email, password) =>{
+        return this.account.createSession(email,password);
+    }
+
+    logoutUser = () =>{
+        return this.account.deleteSession('current');
     }
 }
 

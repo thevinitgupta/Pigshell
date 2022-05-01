@@ -1,20 +1,29 @@
+import {Routes , Route } from 'react-router-dom';
 import './App.css';
+import Home from './Components/Home';
 import Login from './Components/Login';
-// import Signup from './Components/Signup';
-// import Navbar from './Components/Navbar';
-// import Home from './Components/Home';
-// import Loader from "./Assets/Loader.svg"
-// import ImageFilter from './Components/ImageFilter';
+import Signup from './Components/Signup';
+import ImageFilter from './Components/ImageFilter';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      {/* <Navbar/> */}
-      {/* <img src={Loader} alt="pig loader"/> */}
-      {/* <ImageFilter/> */}
-      {/* <Home /> */}
-      {/* <Signup/> */}
-      <Login/>
+      <div className="App">
+    <Routes>
+      <Route exact path={'/'} element={<><Navbar/>
+        <Home/></>} />
+      <Route exact path={'/image'} element={<><Navbar/>
+        <ImageFilter/></>}/>
+      <Route exact path={'/video'} element={<><Navbar/>
+        <ImageFilter/></>} />
+      <Route exact path={'/signup'} element={<Signup/>}/>
+      <Route exact path={'/login'} element={<Login/>}/>
+    </Routes>
+    {/* <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/login" element={ <Login/> } />
+        <Route path="/signup" element={ <Signup/> } />
+      </Routes> */}
     </div>
   );
 }
