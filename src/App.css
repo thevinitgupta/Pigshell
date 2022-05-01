@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--default-font);
+}
+#logo {
+  font-family: var(--logo-font);
+  font-size: 3rem;
+  color: var(--default-logo);
+}
+.highlight-text{
+  color: var(--default-logo);
+}
+

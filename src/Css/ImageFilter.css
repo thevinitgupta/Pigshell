@@ -1,0 +1,245 @@
+.ImageFilter{
+    width: 90%;
+    margin: 0 auto;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ImageUploader{
+    flex : 0.55;
+    height: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#uploadImage{
+    display: none;
+}
+.ImageUploader-head{
+    flex: 0.2;
+    margin-bottom: 4%;
+    font-size: 4rem;
+    text-align: left;
+    font-weight: 400;
+    font-family: var(--logo-font);
+}
+.ImageUpload-btn{
+    background-color: var(--button-color);
+    color: var(--default-background);
+    padding: 3% 3.5%;
+    font-size: 1.15rem;
+    margin-bottom: 4%;
+    border: none;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.ImageUpload-btn:hover{
+    cursor: pointer;
+}
+
+.PreviewImage{
+    flex: 0.5;
+    height: 100%;
+    overflow-x: visible;
+    overflow-y: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.PreviewBackground{
+    height: 80vh;
+    width: 100%;
+    overflow: visible;
+    position: absolute;
+    z-index: 10;
+}
+.Preview-BgImg{
+    position: absolute;
+    height: 40%;
+    min-height: 140px;
+    max-height: 200px;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: floating;
+    animation-name: floating;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+.Bg-Img-1{
+    top : 4%;
+    left : -7%;
+    animation-delay: 350ms;
+    -webkit-animation-delay: 350ms;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+}
+.Bg-Img-2{
+    top : -1%;
+    right : 1%;
+    animation-delay: 850ms;
+    -webkit-animation-delay: 850ms;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+.Bg-Img-3{
+    bottom : -6%;
+    left : 12%;
+    animation-delay: 730ms;
+    -webkit-animation-delay: 730ms;
+    -webkit-animation-duration: 3.5s;
+    animation-duration: 3.5s;
+}
+.Bg-Img-4{
+    bottom : 3%;
+    right : 2%;
+    animation-delay: 900ms;
+    -webkit-animation-delay: 900ms;
+    -webkit-animation-duration: 4.5s;
+    animation-duration: 4.5s;
+}
+.ImagePreview{
+    height: 40%;
+    width: 70%;
+}
+.ImagePreview>img{
+    display: block;
+    /* width: 100%; */
+    height: 100%;
+    max-width: 100%;
+    border: none;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.PreviewGlass {
+    width: 90%;
+    height: 80%;
+    backdrop-filter: blur(10px) saturate(181%);
+    -webkit-backdrop-filter: blur(10px) saturate(181%);
+    background-color: rgba(235, 238, 234, 0.33);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 6px 10px 60px rgba(174, 174, 174, 0.371);
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+.ConvertPreview {
+    height: 95%;
+    max-width: 100%;
+}
+.FilteredPreview{
+    height: 60%;
+    border: none;
+    border-radius: 4px;
+}
+.PreviewBtns{
+    width: 100%;
+    flex: 0.15;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Convert-btn, .downloadImg-btn, .uploadImg-btn{
+    background-color: var(--button-color);
+    color: var(--default-background);
+    font-size: 1.1rem;
+    margin-top: 2%;
+    padding: 3% 5%;
+    border : none;
+    border-radius: 4px;
+}
+.downloadImg-btn{
+    background-color: var(--default-logo);
+}
+.Convert-btn:hover, .downloadImg-btn:hover, .uploadImg-btn:hover{
+    cursor: pointer;
+
+}
+#conv-arrow{
+    margin-left: 2px;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.ConvertedImage{
+    position: absolute;
+}
+#canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+    max-height: 290px;
+    opacity: 0;
+}
+
+@keyframes floating {
+    0%{
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0%, 10%);
+    }
+}
+
+@media screen and (max-width : 895px){
+    .PreviewGlass{
+        height: 75%;
+    }
+    .ConvertPreview{
+        height: 90%;
+    }
+}
+@media screen and (max-width : 830px) {
+    .ImageFilter{
+        display: block;
+        position: relative;
+    }
+    .ImageUploader{
+        flex: 1;
+        position: relative;
+        z-index: 12;
+    }
+    .ImageUploader-head{
+        width: 85%;
+    }
+    .PreviewGlass{
+        display: none;
+    }
+    .PreviewImage{
+        display: block;
+        height: 100%;
+        width: 85%;
+        position: absolute;
+        top: 10%;
+        left: 0;
+    }
+    .PreviewBackground{
+        width: 100%;
+        height: 80%;
+    }
+    .Preview-BgImg{
+        height: 40%;
+        min-height: 100px;
+        max-height: 150px;
+        
+    }
+}
+@media screen and (max-width : 630px){
+    .PreviewImage{
+        display: none;
+    }
+}

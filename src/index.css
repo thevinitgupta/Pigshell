@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat+Alternates:wght@400;700&family=Rubik+Glitch&family=Sniglet&display=swap');
+
+:root{
+  --logo-font : 'Rubik Glitch', cursive;
+  --default-font : 'Montserrat Alternates', sans-serif;
+  --heading-font : 'Sniglet', cursive;
+  --code-font : 'Fira Code', monospace;
+  --default-background : #ebeeea;
+  --default-color : #142F43;
+  --button-color : #516BEB;
+  --default-code : #02ff1c;
+  --default-logo : #ff6634;
+  
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--default-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--default-background);
+  color: var(--default-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
