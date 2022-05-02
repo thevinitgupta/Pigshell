@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import LoginImg from "../Assets/Signup.png"
 import "../Css/Login.css"
 import Pig from "../Assets/pig.png"
 import { useNavigate } from 'react-router-dom';
+import { AppwriteContext } from './Appwrite';
 
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
     const navigator = useNavigate();
+    const appwrite = useContext(AppwriteContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log({ email : email, password : password});
+        appwrite.loginUser(email,password).then((res) =>{
+            console.log("Logged In!", res);
+        }).catch((error) =>{
+            console.log("Error logging in", error);
+        })
+        // console.log({ email : email, password : password});
     }
 
    return (
