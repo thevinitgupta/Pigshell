@@ -1,13 +1,28 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Logo from "../Assets/pig.png"
 import "../Css/Navbar.css"
 import { useNavigate } from 'react-router-dom';
+import AuthUserContext from '../context/sessions';
+import { Appwrite } from 'appwrite';
 
 function Navbar() {
   // const [useSandwich, setUseSandwich] = useState(true);
   const [openDropDown, setOpenDropDown] = useState(true);
 
   const navigate = useNavigate();
+  const {authUser,getCurrentUser} = useContext(AuthUserContext);
+  const appwrite = useContext(Appwrite);
+
+  const handleLogout = () => {
+    appwrite
+      .doLogout()
+      .then(() => {
+        getCurrentUser();
+        navigate("/")
+      })
+      .catch((err) => console.log(err));
+  };
+
 
   const toggleDropDown = () =>{
     setOpenDropDown((prevValue)=>{
@@ -32,9 +47,11 @@ function Navbar() {
             <div className='Nav-item' onClick={()=>{
               navigate("/signup");
             }}>Signup</div>
-            <div className='Login-Btn' onClick={()=>{
+            {authUser ? <div className='Login-Btn' onClick={()=>{
               navigate("/login");
-            }}>Login</div>
+            }}>Login</div> : <div className='Nav-item' onClick={()=>{
+              handleLogout();
+            }}>Logout</div>}
         </div>
         <div className='Nav-Sandwich' onClick={toggleDropDown}>
           <div className='Sandwich Layer-1'></div>
