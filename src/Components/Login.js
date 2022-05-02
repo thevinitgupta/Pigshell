@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import LoginImg from "../Assets/Signup.png"
 import "../Css/Login.css"
+import Pig from "../Assets/pig.png"
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+
+    const navigator = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -14,6 +18,11 @@ function Login() {
    return (
     <div className='Login'>
         <div className='Login-left'>
+            <div className='login-home'>
+                <img className='login-home-btn' onClick={()=>{
+                    navigator("/");
+                }} src={Pig} alt="pigshell"/>
+            </div>
             <div className='Login-head'>
                 <div>Log In</div>
                 <div className='Login-subhead'>

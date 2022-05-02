@@ -19,6 +19,9 @@
     height: 70%;
     object-fit: contain;
 }
+.pigshell-logo:hover{
+    cursor: pointer;
+}
 .Navmenu{
     flex: 0.7;
     height: 100%;
@@ -29,6 +32,15 @@
     font-weight: 400;
     align-items: center;
     font-family: var(--heading-font);
+}
+.Nav-item{
+    flex: 0.2;
+    transition: all 350ms ease-in-out;
+}
+.Nav-item:hover{
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #e6646e;
 }
 .Login-Btn{
     position: relative;

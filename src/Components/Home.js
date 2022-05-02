@@ -1,8 +1,10 @@
 import React from 'react'
 import "../Css/Home.css";
 import Camera from "../Assets/camera.png"
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigator = useNavigate();
   return (
     <div className='Home'>
        <div className='Home-left'>
@@ -12,8 +14,10 @@ function Home() {
            <div className='Home-subhead'>
                You're in the right place. Try out our products.
            </div>
-           <div className='Home-ctas'>
-               <div className='Home-img-conv'>Convert Image</div>
+           <div className='Home-ctas' >
+               <div className='Home-img-conv' onClick={()=>{
+             navigator("/image");
+           }}>Convert Image</div>
            </div>
        </div> 
        <div className='Home-right'>

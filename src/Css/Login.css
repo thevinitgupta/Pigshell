@@ -17,6 +17,21 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.login-home{
+    flex: 0.1;
+    width: 100%;
+    padding-left: 5%;
+}
+.login-home-btn{
+    width: 10%;
+    height: 90%;
+    object-fit: contain;
+    transition: all 250ms ease-in-out;
+}
+.login-home-btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
 .Login-head{
     flex: 0.12;
     width: 92%;
@@ -152,6 +167,7 @@
 .Login-img>img{
     height: 100%;
 }
+
 @media screen  and (max-width : 1100px){
     .Login-welcome{
         width: 80%;
@@ -212,10 +228,25 @@
     .Login-left{
         flex: 1;
     }
+    .login-home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-home-btn{
+        width: 20%;
+    }
     .Login-head{
         text-align: center;
     }
+    .Login-form{
+        align-items: center;
+    }
     .Login-input{
         width: 95%;
+    }
+    .Login-footer > p{
+        width: fit-content;
+        margin: 0 auto;
     }
 }

@@ -18,7 +18,9 @@ function Navbar() {
   return (
     <nav className='Navbar'>
         <div className='Navbar-Logo'>
-            <img className='pigshell-logo' src={Logo} alt="pig logo"/>
+            <img className='pigshell-logo' onClick={()=>{
+              navigate("/")
+            }} src={Logo} alt="pig logo"/>
         </div>
         <div className='Navmenu'>
             <div className='Nav-item' onClick={()=>{

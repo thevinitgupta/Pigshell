@@ -12,6 +12,10 @@
   --default-logo : #ff6634;
   
 }
+::selection{
+  background-color: #ffaab4;
+  color: #4b3f4e;
+}
 *{
   box-sizing: border-box;
   margin: 0;
