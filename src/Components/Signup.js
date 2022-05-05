@@ -23,6 +23,7 @@ function Signup() {
 
         appwrite.createAccount(email, name, password).then((res) =>{
             console.log('Success', res);
+            window.location="/"
         }).catch((error) =>{
             console.log('Error', error);
         })

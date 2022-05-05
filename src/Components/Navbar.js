@@ -50,10 +50,10 @@ function Navbar() {
             <div className='Nav-item' onClick={()=>{
               navigate("/video");
             }}>Video Filter</div>
-            {!loggedIn && <div className='Nav-item' onClick={()=>{
+            {!authUser && <div className='Nav-item' onClick={()=>{
               navigate("/signup");
             }}>Signup</div>}
-            {!loggedIn? <div className='Login-Btn' onClick={()=>{
+            {!authUser? <div className='Login-Btn' onClick={()=>{
               navigate("/login");
             }}>Login</div> : <div className='Nav-item' onClick={()=>{
               handleLogout();
