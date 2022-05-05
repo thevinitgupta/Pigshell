@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useState} from 'react'
 import Logo from "../Assets/pig.png"
 import "../Css/Navbar.css"
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { AppwriteContext } from './Appwrite';
 function Navbar() {
   // const [useSandwich, setUseSandwich] = useState(true);
   const [openDropDown, setOpenDropDown] = useState(true);
-  const [loggedIn,setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   const {authUser,getCurrentUser} = useContext(AuthUserContext);
@@ -29,11 +28,6 @@ function Navbar() {
       return !prevValue;
     })
   }
-
-  useEffect(() => {
-    if(authUser) setLoggedIn(true);
-    else setLoggedIn(false);
-  }, [authUser])
 
 
   return (

@@ -2,7 +2,8 @@ import { Appwrite } from "appwrite";
 
 const config = {
     projectId : process.env.REACT_APP_APPWRITE_PROJECT,
-    endpoint :  process.env.REACT_APP_APPWRITE_ENDPOINT
+    endpoint :  process.env.REACT_APP_APPWRITE_ENDPOINT,
+    bucketId : process.env.REACT_APP_APPWRITE_BUCKET
 };
 
 
@@ -29,6 +30,12 @@ class AppwriteService {
 
     getCurrentUser = () =>{
         return this.account.get();
+    }
+
+    uploadImage = (image) =>{
+        const dateString = new Date().getTime() + "";
+        const name = "pighshell-"+dateString;
+        return appwrite.storage.createFile(`6273908e982a81e27816`,name,image);
     }
 }
 

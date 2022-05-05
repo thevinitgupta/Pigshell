@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef,useContext} from 'react'
 import AsciiEffect from '../Functions/AsciiEffect';
 import "../Css/ImageFilter.css"
 import Obj1 from "../Assets/FilterPage/1.png"
@@ -6,15 +6,24 @@ import Obj2 from "../Assets/FilterPage/2.png"
 import Obj3 from "../Assets/FilterPage/3.png"
 import Obj4 from "../Assets/FilterPage/4.png"
 import Convert from "../Assets/FilterPage/Convert.png"
+import AuthUserContext from '../context/sessions';
+import { AppwriteContext } from './Appwrite';
+import { useNavigate } from 'react-router-dom';
 
 function ImageFilter() {
     const [imageToConvert, setImageToConvert] = useState(null);
     const [displayImage, setDisplayImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
+    const [binaryUrl, setBinaryUrl] = useState("");
+    
+    const {authUser} = useContext(AuthUserContext);
+    const appwrite = useContext(AppwriteContext);
 
     const uploadRef = useRef(null);
     const canvRef = useRef(null);
     const uploaderRef = useRef(null);
+
+    const navigator = useNavigate();
 
     function handleCustomUpload(){
         uploaderRef.current.click();
@@ -38,7 +47,9 @@ function ImageFilter() {
       ctx.font = '7px Fira Code'
       effect.draw(7,"#ffffff");
       const imgUrl = canvas.toDataURL("image/png");
+    //   console.log(imgUrl)
       setPreviewImage(imgUrl)
+      setBinaryUrl(imgUrl);
     }
 
     const downloadImage = ()=>{
@@ -50,8 +61,39 @@ function ImageFilter() {
         setPreviewImage(null);
     }
 
+    const base64ToBlob = (base64, mime) => 
+{
+    mime = mime || '';
+    var sliceSize = 1024;
+    var byteChars = window.atob(base64);
+    var byteArrays = [];
+
+    for (var offset = 0, len = byteChars.length; offset < len; offset += sliceSize) {
+        var slice = byteChars.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, {type: mime});
+}
+
     const uploadImage = () =>{
-        
+        if(authUser==null) return navigator("/login");
+
+        var jpegFile64 = binaryUrl.replace(/^data:image\/(png|jpeg);base64,/, "");
+        var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg'); 
+        appwrite.uploadImage(jpegBlob).then((res)=>{
+            console.log("image uploaded successfully", res)
+        }).catch((error) =>{
+            console.log("Error Uploading Image", error);
+        })
     }
   return (
     <div className='ImageFilter'>
