@@ -1,24 +1,24 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import Logo from "../Assets/pig.png"
 import "../Css/Navbar.css"
 import { useNavigate } from 'react-router-dom';
 import AuthUserContext from '../context/sessions';
-import { Appwrite } from 'appwrite';
+import { AppwriteContext } from './Appwrite';
 
 function Navbar() {
   // const [useSandwich, setUseSandwich] = useState(true);
   const [openDropDown, setOpenDropDown] = useState(true);
+  const [loggedIn,setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   const {authUser,getCurrentUser} = useContext(AuthUserContext);
-  const appwrite = useContext(Appwrite);
+  const appwrite = useContext(AppwriteContext);
 
   const handleLogout = () => {
     appwrite
-      .doLogout()
+      .logoutUser()
       .then(() => {
         getCurrentUser();
-        navigate("/")
       })
       .catch((err) => console.log(err));
   };
@@ -29,6 +29,12 @@ function Navbar() {
       return !prevValue;
     })
   }
+
+  // useEffect(() => {
+  //   if(authUser) setLoggedIn(true);
+  //   else setLoggedIn(false);
+  // }, [authUser])
+
 
   return (
     <nav className='Navbar'>
@@ -44,14 +50,17 @@ function Navbar() {
             <div className='Nav-item' onClick={()=>{
               navigate("/video");
             }}>Video Filter</div>
-            <div className='Nav-item' onClick={()=>{
+            {!loggedIn && <div className='Nav-item' onClick={()=>{
               navigate("/signup");
-            }}>Signup</div>
-            {authUser ? <div className='Login-Btn' onClick={()=>{
+            }}>Signup</div>}
+            {!loggedIn? <div className='Login-Btn' onClick={()=>{
               navigate("/login");
             }}>Login</div> : <div className='Nav-item' onClick={()=>{
               handleLogout();
             }}>Logout</div>}
+            {/* <div className='Login-Btn' onClick={()=>{
+              navigate("/login");
+            }}>Login</div> */}
         </div>
         <div className='Nav-Sandwich' onClick={toggleDropDown}>
           <div className='Sandwich Layer-1'></div>

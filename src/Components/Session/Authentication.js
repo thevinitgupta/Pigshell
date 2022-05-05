@@ -11,7 +11,8 @@ const Authentication = (Component) =>
         const getCurrentUser = useCallback(() => {
             appwrite.getCurrentUser().then((user) => {
                 setAuthUser(user);
-            }).catch(() =>{
+            }).catch((error) =>{
+                // console.error("Auth User : ",error)
                 setAuthUser(null);
             });
         }, [appwrite]);

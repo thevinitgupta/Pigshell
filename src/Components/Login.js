@@ -16,6 +16,7 @@ function Login() {
         e.preventDefault();
         appwrite.loginUser(email,password).then((res) =>{
             console.log("Logged In!", res);
+            // navigator("/")
         }).catch((error) =>{
             console.log("Error logging in", error);
         })

@@ -5,7 +5,7 @@ import Login from './Components/Login';
 import Signup from './Components/Signup';
 import ImageFilter from './Components/ImageFilter';
 import Navbar from './Components/Navbar';
-import {Authentication} from "./Components/Session/index"
+import Authentication from "./Components/Session/index.js"
 
 function App() {
   return (
