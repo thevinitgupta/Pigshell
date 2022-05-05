@@ -30,10 +30,10 @@ function Navbar() {
     })
   }
 
-  // useEffect(() => {
-  //   if(authUser) setLoggedIn(true);
-  //   else setLoggedIn(false);
-  // }, [authUser])
+  useEffect(() => {
+    if(authUser) setLoggedIn(true);
+    else setLoggedIn(false);
+  }, [authUser])
 
 
   return (
