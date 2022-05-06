@@ -74,12 +74,25 @@ function Navbar() {
             <div className='Drop-item' onClick={()=>{
               navigate("/video");
             }}>Video Filter</div>
-            <div className='Drop-item' onClick={()=>{
+            {!authUser ? <div className='Drop-item' onClick={()=>{
               navigate("/signup");
-            }}>Signup</div>
-            <div className='Drop-item'><div className="Drop-Login" onClick={()=>{
+            }}>Signup</div>: <div className='Drop-item' onClick={()=>{
+              navigate("/dashboard");
+            }}>Profile</div>}
+            <div className='Drop-item'>
+
+            {!authUser ? 
+            <div className="Drop-Login" onClick={()=>{
               navigate("/login");
-            }}>Login</div></div>
+            }}>Login</div>
+            :
+            <div className="Drop-Login" onClick={()=>{
+              handleLogout();
+            }}>Logout</div>
+            
+            } 
+            
+            </div>
           </div>
     </nav>
   )
