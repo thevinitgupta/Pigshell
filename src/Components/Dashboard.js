@@ -19,13 +19,11 @@ function Dashboard() {
     let images = [];
 
     const getImageToDisplay =  (currImages) =>{
-        console.log(currImages)
         return new Promise((resolve,rejet)=>{
             if(currImages.length>=1){
                 currImages.forEach((imageData, index) => {
                     images.push(appwrite.loadImage(imageData.$id));
                 })
-                console.log(images);
                 setUserImages(images);
                 resolve();
             }
@@ -35,16 +33,9 @@ function Dashboard() {
 
     const deleteImage = (index) =>{
         const imageId = userImages[index].pathname.split("/")[6];
-        console.log()
 
         appwrite.deleteImage(imageId).then((res)=>{
-            console.log(res);
-            setUserImages(userImages.filter((image,currInd) =>{
-                if(index===currInd){
-                    return -1;
-                }
-                else return 1;
-            }))
+            window.location = "/dashboard"
         }).catch((err) =>{
             console.log("Error deleting image : ",err);
         })
@@ -52,14 +43,8 @@ function Dashboard() {
 
     const downloadImage =  (index) =>{
         const imageId = userImages[index].pathname.split("/")[6];
-        console.log(userImages[index].pathname.split("/")[6])
         const downloadLink = appwrite.downloadImage(imageId);
-        console.log(downloadLink)
-        // window.open(downloadLink.href)
-        const dlink = document.createElement("a");
-        dlink.href = downloadLink.toJSON();
-        dlink.download = `pigshell-${imageId}.png`
-        dlink.click();
+        window.open(downloadLink.href)
     }
 
     useEffect(() => {   
@@ -67,12 +52,9 @@ function Dashboard() {
         setLoading(true);
         setTimeout( ()=>{
             setLoading(false);
-            console.log(data.files);
             setUserImages(data.files);
-            console.log(loaded);
             getImageToDisplay(data.files).then(()=>{
                 setLoaded(true);
-                console.log(loaded)
             }).catch(()=>{
                 console.log("Images Not loaded")
             });

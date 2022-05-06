@@ -117,3 +117,12 @@
 .loader>img{
     width: 100%;
 }
+
+@media screen and (max-width:830px){
+    .Image-btns{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
