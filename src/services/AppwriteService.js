@@ -37,6 +37,18 @@ class AppwriteService {
         const name = "pighshell-"+dateString;
         return appwrite.storage.createFile(`6273908e982a81e27816`,name,image);
     }
+
+    getImages = () =>{
+        return appwrite.storage.listFiles('6273908e982a81e27816');
+    }
+
+    loadImage = ( imageId) =>{
+        return appwrite.storage.getFilePreview('6273908e982a81e27816',imageId);
+    }
+
+    downloadImage = (imageId) =>{
+        return appwrite.storage.getFileDownload('6273908e982a81e27816', imageId)
+    }
 }
 
 export default AppwriteService;
