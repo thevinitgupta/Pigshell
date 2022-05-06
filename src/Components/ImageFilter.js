@@ -15,6 +15,7 @@ function ImageFilter() {
     const [displayImage, setDisplayImage] = useState(null);
     const [previewImage, setPreviewImage] = useState(null);
     const [binaryUrl, setBinaryUrl] = useState("");
+    const [imageName, setImageName] = useState("pigshell");
     
     const {authUser} = useContext(AuthUserContext);
     const appwrite = useContext(AppwriteContext);
@@ -31,6 +32,9 @@ function ImageFilter() {
 
     function fileChangedHandler(event){
         const currImage = new Image();
+        const currName = event.target.files[0].name;
+        const lastDot = currName.lastIndexOf(".");
+        setImageName(currName.substring(0,lastDot)+"-pigshell"+currName.substring(lastDot))
         currImage.src = URL.createObjectURL(event.target.files[0]);
         setDisplayImage(URL.createObjectURL(event.target.files[0]))
         setImageToConvert(currImage);
@@ -53,43 +57,21 @@ function ImageFilter() {
     }
 
     const downloadImage = ()=>{
-        const imgName = "pigshell";
         const download = document.createElement("a");
         download.href = previewImage;
-        download.download = imgName;
+        download.download = imageName;
         download.click();
         setPreviewImage(null);
     }
 
-    const base64ToBlob = (base64, mime) => 
-{
-    mime = mime || '';
-    var sliceSize = 1024;
-    var byteChars = window.atob(base64);
-    var byteArrays = [];
-
-    for (var offset = 0, len = byteChars.length; offset < len; offset += sliceSize) {
-        var slice = byteChars.slice(offset, offset + sliceSize);
-
-        var byteNumbers = new Array(slice.length);
-        for (var i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i);
-        }
-
-        var byteArray = new Uint8Array(byteNumbers);
-
-        byteArrays.push(byteArray);
-    }
-
-    return new Blob(byteArrays, {type: mime});
-}
-
-    const uploadImage = () =>{
+    const uploadImage = async() =>{
         if(authUser==null) return navigator("/login");
+        
+        const blob = await (await fetch(binaryUrl)).blob(); 
+        console.log(blob)
+        const file = new File([blob], `pigshell${new Date().getTime()}.png`, {type:"image/png", lastModified:new Date()});
 
-        var jpegFile64 = binaryUrl.replace(/^data:image\/(png|jpeg);base64,/, "");
-        var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg'); 
-        appwrite.uploadImage(jpegBlob).then((res)=>{
+        appwrite.uploadImage(file).then((res)=>{
             console.log("image uploaded successfully", res)
         }).catch((error) =>{
             console.log("Error Uploading Image", error);

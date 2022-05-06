@@ -3,7 +3,6 @@ import "../Css/Dashboard.css"
 import AuthUserContext from '../context/sessions'
 import { useNavigate } from 'react-router-dom';
 import Loader from "../Assets/Loader.svg"
-import Photu from "../Assets/camera.png"
 import Download from "../Assets/Icons/download.svg"
 import Delete from "../Assets/Icons/trash.svg"
 import { AppwriteContext } from './Appwrite';
@@ -34,15 +33,33 @@ function Dashboard() {
         })
     }
 
-    const downloadImage = (index) =>{
+    const deleteImage = (index) =>{
+        const imageId = userImages[index].pathname.split("/")[6];
+        console.log()
+
+        appwrite.deleteImage(imageId).then((res)=>{
+            console.log(res);
+            setUserImages(userImages.filter((image,currInd) =>{
+                if(index===currInd){
+                    return -1;
+                }
+                else return 1;
+            }))
+        }).catch((err) =>{
+            console.log("Error deleting image : ",err);
+        })
+    }
+
+    const downloadImage =  (index) =>{
         const imageId = userImages[index].pathname.split("/")[6];
         console.log(userImages[index].pathname.split("/")[6])
         const downloadLink = appwrite.downloadImage(imageId);
         console.log(downloadLink)
-        // const dlink = document.createElement("a");
-        // dlink.href = downloadLink.href;
-        // dlink.download = `${authUser.name}-${imageId}.png`
-        // dlink.click();
+        // window.open(downloadLink.href)
+        const dlink = document.createElement("a");
+        dlink.href = downloadLink.toJSON();
+        dlink.download = `pigshell-${imageId}.png`
+        dlink.click();
     }
 
     useEffect(() => {   
@@ -91,7 +108,9 @@ function Dashboard() {
                                 <div className='Image-btn download' onClick={()=>{
                                     downloadImage(index)
                                 }}><img src={Download} alt="download"/></div>
-                                <div className='Image-btn delete'><img src={Delete} alt="delete"/></div>
+                                <div className='Image-btn delete' onClick={()=>{
+                                    deleteImage(index)
+                                }}><img src={Delete} alt="delete"/></div>
                             </div>
                         </div>
                     })}
