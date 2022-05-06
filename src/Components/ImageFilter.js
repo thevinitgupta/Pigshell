@@ -69,7 +69,7 @@ function ImageFilter() {
         
         const blob = await (await fetch(binaryUrl)).blob(); 
         console.log(blob)
-        const file = new File([blob], `pigshell${new Date().getTime()}.png`, {type:"image/png", lastModified:new Date()});
+        const file = new File([blob], imageName, {type:"image/png", lastModified:new Date()});
 
         appwrite.uploadImage(file).then((res)=>{
             console.log("image uploaded successfully", res)
