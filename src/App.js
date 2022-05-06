@@ -6,6 +6,7 @@ import Signup from './Components/Signup';
 import ImageFilter from './Components/ImageFilter';
 import Navbar from './Components/Navbar';
 import Authentication from "./Components/Session/index.js"
+import Dashboard from './Components/Dashboard';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <ImageFilter/></>} />
       <Route exact path={'/signup'} element={<Signup/>}/>
       <Route exact path={'/login'} element={<Login/>}/>
+      <Route exact path={'/dashboard'} element={<><Navbar/>
+        <Dashboard/></>} />
     </Routes>
     {/* <Routes>
         <Route path="/" element={ <Home/> } />
