@@ -196,40 +196,69 @@
 }
 
 @media screen and (max-width : 895px){
+    .ImageUploader{
+        width: 45%;
+    }
+    .ImagePreview{
+        width: 60%;
+    }
     .PreviewGlass{
         height: 75%;
     }
+    .Preview-BgImg{
+        width: 35%;
+        min-height: 80px;
+        max-height: 150px;
+    }
     .ConvertPreview{
-        height: 90%;
+        height: 80%;
     }
 }
 @media screen and (max-width : 830px) {
     .ImageFilter{
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: relative;
     }
     .ImageUploader{
         flex: 1;
         position: relative;
         z-index: 12;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .ImageUploader-head{
-        width: 85%;
+        width: 100%;
     }
-    .PreviewGlass{
+    /* .PreviewGlass{
         display: none;
+    } */
+    .ImageUpload-btn{
+        align-self: start;
+    }
+    .ImagePreview{
+        display: flex;
+        justify-content: center;
     }
     .PreviewImage{
         display: block;
         height: 100%;
         width: 85%;
-        position: absolute;
+        /* position: absolute; */
         top: 10%;
         left: 0;
     }
     .PreviewBackground{
         width: 100%;
-        height: 80%;
+        height: 100%;
+    }
+    .PreviewGlass{
+        height: 95%;
+    }
+    .ConvertPreview{
+        height: 60%;
     }
     .Preview-BgImg{
         height: 40%;
@@ -239,7 +268,7 @@
     }
 }
 @media screen and (max-width : 630px){
-    .PreviewImage{
+    /* .PreviewImage{
         display: none;
-    }
+    } */
 }

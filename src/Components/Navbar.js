@@ -69,14 +69,17 @@ function Navbar() {
               <div className='cross cross-right'></div>
             </div>
             <div className='Drop-item' onClick={()=>{
+              toggleDropDown();
               navigate("/image");
             }}>Image Filter</div>
             <div className='Drop-item' onClick={()=>{
+              toggleDropDown();
               navigate("/video");
             }}>Video Filter</div>
             {!authUser ? <div className='Drop-item' onClick={()=>{
               navigate("/signup");
             }}>Signup</div>: <div className='Drop-item' onClick={()=>{
+              toggleDropDown();
               navigate("/dashboard");
             }}>Profile</div>}
             <div className='Drop-item'>
@@ -87,6 +90,7 @@ function Navbar() {
             }}>Login</div>
             :
             <div className="Drop-Login" onClick={()=>{
+              toggleDropDown();
               handleLogout();
             }}>Logout</div>
             
