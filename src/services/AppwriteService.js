@@ -36,27 +36,27 @@ class AppwriteService {
         console.log(typeof image)
         const dateString = new Date().getTime() + "";
         const fileId = "pighshell-"+dateString;
-        return appwrite.storage.createFile(`62755ea53e16e9bb3602`,fileId,image);
+        return appwrite.storage.createFile(`6280a33e94bee3e36043`,fileId,image);
     }
 
     getImages = () =>{
-        return appwrite.storage.listFiles('62755ea53e16e9bb3602');
+        return appwrite.storage.listFiles('6280a33e94bee3e36043');
     }
 
     loadImage = ( imageId) =>{
-        return appwrite.storage.getFilePreview('62755ea53e16e9bb3602',imageId);
+        return appwrite.storage.getFileView('6280a33e94bee3e36043',imageId);
     }
 
     downloadImage = (imageId) =>{
-        return appwrite.storage.getFileDownload('62755ea53e16e9bb3602', imageId)
+        return appwrite.storage.getFileDownload('6280a33e94bee3e36043', imageId)
     }
 
     getFile = (imageId) =>{
-        return appwrite.storage.getFile('62755ea53e16e9bb3602',imageId)
+        return appwrite.storage.getFile('6280a33e94bee3e36043',imageId)
     }
     
     deleteImage = (imageId) =>{
-        return appwrite.storage.deleteFile('62755ea53e16e9bb3602', imageId);
+        return appwrite.storage.deleteFile('6280a33e94bee3e36043', imageId);
     }
 }
 
