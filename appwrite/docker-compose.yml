@@ -8,7 +8,7 @@ services:
       - --providers.file.directory=/storage/config
       - --providers.file.watch=true
       - --providers.docker=true
-      - --providers.docker.exposedByDefault=false
+      - --providers.docker.exposedByDefault=true
       - --providers.docker.constraints=Label(`traefik.constraint-label-stack`,`appwrite`)
       - --entrypoints.appwrite_web.address=:80
       - --entrypoints.appwrite_websecure.address=:443
@@ -46,7 +46,7 @@ services:
       - traefik.http.routers.appwrite_api_https.rule=PathPrefix(`/`)
       - traefik.http.routers.appwrite_api_https.service=appwrite_api
       - traefik.http.routers.appwrite_api_https.tls=true
-      - traefik.http.middlewares.testheader.headers.customresponseheaders.access-control-allow-origin=https://pigshell.netlify.app/
+      - traefik.http.headers.customresponseheaders.access-control-allow-origin=https://pigshell.netlify.app/
     volumes:
       - appwrite-uploads:/storage/uploads:rw
       - appwrite-cache:/storage/cache:rw
